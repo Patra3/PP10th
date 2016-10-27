@@ -19,23 +19,63 @@ Coded by Chen Zheng (atlas .. HotFireyDeath)
                 font-family: Droid Serif;
             }
         </style>
+        <script>
+        
+            var previous = "main_menu";
+        
+            var resource = {
+                "main_menu" : {
+                    "background" : "assets/images/background-init.jpg"
+                },
+                "1" : {
+                    "background" : "assets/images/background-1.jpg"
+                }
+            }
+            
+            function switchToPage(page){
+                if (page != "main_menu"){
+                    $("#back_btn").show();
+                }
+                else{
+                    $("#back_btn").hide();
+                }
+                $("#" + page).show();
+                $("#" + previous).hide();
+                previous = page;
+                document.getElementById("bkg").src = resource[page].background;
+            }
+            
+        </script>
     </head>
     <body>
-        <br>
+        <img id="bkg" src="assets/images/background-init.jpg" width="100%" height="100%" style="position: fixed; opacity: 0.2;">
         <div class="container">
-            <div class="row">
-                <div class="eight columns">
-                    <h3 class="animated fadeInDown">Presidental Election Process</h3>
-                </div>
-                <div class="four columns">
-                    <ul style="list-style: none;">
-                        <li class="animated fadeInRight" style="animation-delay: 1s; animation-duration: 1s;"><a>1. Announcing Candidacy & Organizing</a></li>
-                        <li class="animated fadeInRight" style="animation-delay: 1.1s; animation-duration: 1s;"><a>2. Pre-primary fundraising, campaigning and debating</a></li>
-                        <li class="animated fadeInRight" style="animation-delay: 1.2s; animation-duration: 1s;"><a>3. Primaries and caucuses</a></li>
-                        <li class="animated fadeInRight" style="animation-delay: 1.3s; animation-duration: 1s;"><a>4. Iowa Caucus</a></li>
-                        <li class="animated fadeInRight" style="animation-delay: 1.4s; animation-duration: 1s;"><a>5. New Hampshire Primary</a></li>
-                    </ul>
-                </div>
+            <br>
+            <a onclick="switchToPage('main_menu');" style="cursor: pointer; display: none;" id="back_btn">< Back</a>
+            <!-- main menu -->
+            <div id="main_menu">
+                <h3 class="animated fadeInDown">Presidental Election Process</h3>
+                <span class="animated fadeIn" style="animation-delay: 0.2s;">Project by Chen Zheng</span>
+                <br>
+                <br>
+                <ul style="list-style: none;">
+                    <li onclick="switchToPage('1');" class="animated zoomIn" style="animation-delay: 1s; animation-duration: 1s; cursor: pointer;"><a>1. Announcing Candidacy & Organizing</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.1s; animation-duration: 1s; cursor: pointer;"><a>2. Pre-primary fundraising, campaigning and debating</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.2s; animation-duration: 1s; cursor: pointer;"><a>3. Primaries and caucuses</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.3s; animation-duration: 1s; cursor: pointer;"><a>4. Iowa Caucus</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.4s; animation-duration: 1s; cursor: pointer;"><a>5. New Hampshire Primary</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.5s; animation-duration: 1s; cursor: pointer;"><a>6. National Convention</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.6s; animation-duration: 1s; cursor: pointer;"><a>7. Fall Campaign</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.7s; animation-duration: 1s; cursor: pointer;"><a>8. General Election</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.8s; animation-duration: 1s; cursor: pointer;"><a>9. Electoral College</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.9s; animation-duration: 1s; cursor: pointer;"><a>10. Inauguration</a></li>
+                </ul>
+            </div>
+            
+            <!-- announcing candidacy & organizing -->
+            <div id="1" style="display: none;">
+                <h3 class="animated fadeInDown">Announcing Candidacy & Organizing</h3>
+                <p>Data.</p>
             </div>
         </div>
     </body>
