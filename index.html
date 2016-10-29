@@ -15,67 +15,111 @@ Coded by Chen Zheng (atlas .. HotFireyDeath)
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
         <script src="assets/jquery/jquery-3.1.1.min.js"></script>
         <style>
-            * {
-                font-family: Droid Serif;
+            body {
+                font-family: "Droid Serif";
+            }
+            #bkg {
+                height: 100%;
+                opacity: 0.2;
+                position: fixed;
+                width: 100%;
+            }
+            #back_btn {
+                cursor: pointer;
+                display: none;
+            }
+            .page-list li {
+                animation-duration: 1s;
+                color: #1EAEDB;
+                cursor: pointer;
+            }
+            .page {
+                display: none;
             }
         </style>
         <script>
         
-            var previous = "main_menu";
+            var previous = "menu";
         
             var resource = {
-                "main_menu" : {
+                "menu" : {
                     "background" : "assets/images/background-init.jpg"
                 },
                 "1" : {
                     "background" : "assets/images/background-1.jpg"
+                },
+                "error" : {
+                    "background" : "assets/images/background-init.jpg"
                 }
             }
             
             function switchToPage(page){
-                if (page != "main_menu"){
+                // Set page to "menu" if there is no hash
+                if (page == ""){
+                    page = "menu";
+                }
+                // Render error page if specified page name doesn't exist
+                if($("#" + page).length === 0){
+                    switchToPage("error");
+                    return;
+                }
+                // If page isn't main menu
+                if (page != "menu"){
                     $("#back_btn").show();
                 }
                 else{
                     $("#back_btn").hide();
                 }
-                $("#" + page).show();
                 $("#" + previous).hide();
+                $("#" + page).show();
+                $("#bkg")
+                    .hide() // Hide so they can't see a sudden change
+                    .attr("src", resource[page].background) // Change the src to the new value
+                    .fadeIn(800); // Fade in new background, voila!
                 previous = page;
-                document.getElementById("bkg").src = resource[page].background;
             }
+            
+            $(function(){
+                switchToPage(location.hash.substring(1)); // Detect hash on page load and send viewer to that page, more convenient 
+                $(window).on("hashchange", function(){
+                    switchToPage(location.hash.substring(1)); 
+                });
+            });
             
         </script>
     </head>
     <body>
-        <img id="bkg" src="assets/images/background-init.jpg" width="100%" height="100%" style="position: fixed; opacity: 0.2;">
+        <img id="bkg" src="assets/images/background-init.jpg">
         <div class="container">
-            <br>
-            <a onclick="switchToPage('main_menu');" style="cursor: pointer; display: none;" id="back_btn">< Back</a>
+            <a href="#menu" id="back_btn">< Back</a>
             <!-- main menu -->
-            <div id="main_menu">
+            <div id="menu">
+                <br>
                 <h3 class="animated fadeInDown">Presidental Election Process</h3>
                 <span class="animated fadeIn" style="animation-delay: 0.2s;">Project by Chen Zheng</span>
                 <br>
                 <br>
-                <ul style="list-style: none;">
-                    <li onclick="switchToPage('1');" class="animated zoomIn" style="animation-delay: 1s; animation-duration: 1s; cursor: pointer;"><a>1. Announcing Candidacy & Organizing</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.1s; animation-duration: 1s; cursor: pointer;"><a>2. Pre-primary fundraising, campaigning and debating</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.2s; animation-duration: 1s; cursor: pointer;"><a>3. Primaries and caucuses</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.3s; animation-duration: 1s; cursor: pointer;"><a>4. Iowa Caucus</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.4s; animation-duration: 1s; cursor: pointer;"><a>5. New Hampshire Primary</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.5s; animation-duration: 1s; cursor: pointer;"><a>6. National Convention</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.6s; animation-duration: 1s; cursor: pointer;"><a>7. Fall Campaign</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.7s; animation-duration: 1s; cursor: pointer;"><a>8. General Election</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.8s; animation-duration: 1s; cursor: pointer;"><a>9. Electoral College</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.9s; animation-duration: 1s; cursor: pointer;"><a>10. Inauguration</a></li>
-                </ul>
+                <ol class="page-list">
+                    <li class="animated zoomIn" style="animation-delay: 1s;"><a href="#1">Announcing Candidacy & Organizing</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.05s;"><a>Pre-primary fundraising, campaigning and debating</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.1s;"><a>Primaries and caucuses</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.15s;"><a>Iowa Caucus</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.2s;"><a>New Hampshire Primary</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.25s;"><a>National Convention</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.3s;"><a>Fall Campaign</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.35s;"><a>General Election</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.4s;"><a>Electoral College</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.45s;"><a>Inauguration</a></li>
+                </ol>
             </div>
-            
             <!-- announcing candidacy & organizing -->
-            <div id="1" style="display: none;">
+            <div id="1" class="page">
                 <h3 class="animated fadeInDown">Announcing Candidacy & Organizing</h3>
                 <p>Data.</p>
+            </div>
+            <!-- when an attempt is made to access a non-existent page -->
+            <div id="error" class="page">
+                <h3 class="animated fadeInDown">Couldn't find this page :(</h3>
             </div>
         </div>
     </body>
