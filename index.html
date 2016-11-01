@@ -1,6 +1,6 @@
 <!--
 
-Done for American Government class as project.
+Done for American Government class as a project.
 Coded by Chen Zheng (atlas .. HotFireyDeath)
 
 -->
@@ -27,6 +27,10 @@ Coded by Chen Zheng (atlas .. HotFireyDeath)
                 position: fixed;
                 width: 100%;
             }
+            #op_source {
+                cursor: pointer;
+                color: red;
+            }
             #back_btn {
                 cursor: pointer;
                 display: none;
@@ -41,7 +45,7 @@ Coded by Chen Zheng (atlas .. HotFireyDeath)
             }
         </style>
         <script>
-        
+            
             var previous = "menu";
         
             var resource = {
@@ -53,6 +57,33 @@ Coded by Chen Zheng (atlas .. HotFireyDeath)
                 },
                 "error" : {
                     "background" : "assets/images/background-init.jpg"
+                },
+                "2" : {
+                    "background" : "assets/images/background-2.jpg"
+                },
+                "3" : {
+                    "background" : "assets/images/background-3.png"
+                },
+                "4" : {
+                    "background" : "assets/images/background-4.jpg"
+                },
+                "5" : {
+                    "background" : "assets/images/background-5.jpg"
+                },
+                "6" : {
+                    "background" : "assets/images/background-6.jpg"
+                },
+                "7" : {
+                    "background" : "assets/images/background-7.jpg"
+                },
+                "8" : {
+                    "background" : "assets/images/background-8.jpg"
+                },
+                "9" : {
+                    "background" : "assets/images/background-9.gif"
+                },
+                "10" : {
+                    "background" : "assets/images/background-10.jpg"
                 }
             }
             
@@ -73,12 +104,12 @@ Coded by Chen Zheng (atlas .. HotFireyDeath)
                 else{
                     $("#back_btn").hide();
                 }
+                $("#bkg")
+                    .hide()
+                    .attr("src", resource[page].background)
+                    .fadeIn(800);
                 $("#" + previous).hide();
                 $("#" + page).show();
-                $("#bkg")
-                    .hide() // Hide so they can't see a sudden change
-                    .attr("src", resource[page].background) // Change the src to the new value
-                    .fadeIn(800); // Fade in new background, voila!
                 previous = page;
             }
             
@@ -92,7 +123,7 @@ Coded by Chen Zheng (atlas .. HotFireyDeath)
         </script>
     </head>
     <body>
-        <img id="bkg" src="assets/images/background-init.jpg">
+        <img id="bkg" src="">
         <div class="container">
             <br>
             <a href="#menu" id="back_btn">< Back</a>
@@ -100,20 +131,20 @@ Coded by Chen Zheng (atlas .. HotFireyDeath)
             <div id="menu">
                 <br>
                 <h3 class="animated fadeInDown">Presidental Election Process</h3>
-                <span class="animated fadeIn" style="animation-delay: 0.2s;">Project by Chen Zheng</span>
+                <span class="animated fadeIn" style="animation-delay: 0.2s;"><a id="op_source" href="https://github.com/HotFireyDeath/PP10th">Project by Chen Zheng</a></span>
                 <br>
                 <br>
                 <ol class="page-list">
                     <li class="animated zoomIn" style="animation-delay: 1s;"><a href="#1">Announcing Candidacy & Organizing</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.05s;"><a>Pre-primary fundraising, campaigning and debating</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.1s;"><a>Primaries and caucuses</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.15s;"><a>Iowa Caucus</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.2s;"><a>New Hampshire Primary</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.25s;"><a>National Convention</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.3s;"><a>Fall Campaign</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.35s;"><a>General Election</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.4s;"><a>Electoral College</a></li>
-                    <li class="animated zoomIn" style="animation-delay: 1.45s;"><a>Inauguration</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.05s;"><a href="#2">Pre-primary fundraising, campaigning and debating</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.1s;"><a href="#3">Primaries and caucuses</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.15s;"><a href="#4">Iowa Caucus</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.2s;"><a href="#5">New Hampshire Primary</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.25s;"><a href="#6">National Convention</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.3s;"><a href="#7">Fall Campaign</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.35s;"><a href="#8">General Election</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.4s;"><a href="#9">Electoral College</a></li>
+                    <li class="animated zoomIn" style="animation-delay: 1.45s;"><a href="#10">Inauguration</a></li>
                 </ol>
             </div>
             <!-- announcing candidacy & organizing -->
@@ -135,6 +166,102 @@ Coded by Chen Zheng (atlas .. HotFireyDeath)
                     Due to the fact recent nominations are won during the primary campaign rather than the convention, 
                     and that primaries are proliferated and are scheduled earlier in the election year, competitors 
                     are pressed to announce their running campaign much earlier than before.
+                </p>
+            </div>
+            <div id="2" class="page">
+                <h3 class="animated fadeInDown">Pre-primary fundraising, campaigning, and debating</h3>
+                <p class="animated fadeIn" style="animation-delay: 0.8s;">
+                    The candidates fundraise and campaign before the primaries. This is to help develop the candidate’s 
+                    campaign and reputation in the public. Usually fundraising helps provide money for their campaign, and 
+                    debating helps get their intentions and principles across to people.
+                </p>
+            </div>
+            <div id="3" class="page">
+                <h3 class="animated fadeInDown">Primaries and caucuses</h3>
+                <p class="animated fadeIn" style="animation-delay: 0.8s;">
+                    Primaries and caucuses are the first step to eliminate some running candidates. Primaries are events 
+                    where a party will elect for candidates who will continue forth, while the other candidates who do not get 
+                    enough votes will be eliminated. Caucuses are community held events in the local area where a party holds 
+                    a discussion and vote to decide the candidates who will continue forth from the ones eliminated.
+                </p>
+            </div>
+            <div id="4" class="page">
+                <h3 class="animated fadeInDown">Iowa Caucus</h3>
+                <p class="animated fadeIn" style="animation-delay: 0.8s;">
+                    This is an electoral event where residents of Iowa will meet together in the state and elect delegates, 
+                    like most caucuses. The Iowa Caucus is the first caucus to hold a ballot vote in the United States, and 
+                    receives lots of media coverage.
+                </p>
+            </div>
+            <div id="5" class="page">
+                <h3 class="animated fadeInDown">New Hampshire Primary</h3>
+                <p class="animated fadeIn" style="animation-delay: 0.8s;">
+                    This is a primary election that happens in New Hampshire. The New Hampshire primary is known for being the 
+                    first primary election in the United States (much like the Iowa Caucus is the first caucus to hold a ballot 
+                    vote), and receives massive media coverage.
+                </p>
+            </div>
+            <div id="6" class="page">
+                <h3 class="animated fadeInDown">National Convention</h3>
+                <p class="animated fadeIn" style="animation-delay: 0.8s;">
+                   The National Convention is a political convention held by the different partaking parties in the election. 
+                   The primary purpose of the National Convention is to select and decide on the party’s nominee running for 
+                   President. Additionally, they are to create a platform, which is a set of statements that adopt the party’s
+                   goals and principles; these goals and proposals are known as ‘planks’. During the National Convention, a vice 
+                   president is also nominated.
+                </p>
+            </div>
+            <div id="7" class="page">
+                <h3 class="animated fadeInDown">Fall Campaign</h3>
+                <p class="animated fadeIn" style="animation-delay: 0.8s;">
+                   During fall, the candidates use many methods of campaign such as ads and bus tours. One of the methods of their campaign 
+                   is bus tours. These bus tours take the candidate across different parts of the country, while carrying journalists, 
+                   reporters, and commentators. The tour will stop by designated cities where the candidate can make speeches and other 
+                   engagements, and attempt to relay their messages.
+                   <br>
+                   <br>
+                   Another method used by candidates during the fall campaign are ads. These ads help convey the candidate’s goals and 
+                   principles, and help persuade people who watch these ads. Additionally, some ads will desecrate other candidates.
+                   <br>
+                   <br>
+                   One of the more known events that happen during the Fall season are the Presidential Debates. During the debates, the 
+                   candidates from the largest running parties (currently Republican and Democrat), will engage in a debate. This debate 
+                   discusses controversial issues at the time, and are primarily at swaying undecided voters, or those who are not in a party yet.
+                   <br>
+                   <br>
+                   Swing states are states that have similar levels of support among voters of the party. These states do not have overwhelming 
+                   votes of one party, and are focused on a lot more during the campaign by the candidates.
+
+                </p>
+            </div>
+            <div id="8" class="page">
+                <h3 class="animated fadeInDown">General Election</h3>
+                <p class="animated fadeIn" style="animation-delay: 0.8s;">
+                   In term, general elections are elections held at any level (such as cities, counties, states, etc.) that competes between at 
+                   least two parties. The major general election is the Presidential Election, where voters will select presidential electors that 
+                   will vote through the Electoral College. The Presidential Election will decide the next president from the running candidates.
+                </p>
+            </div>
+            <div id="9" class="page">
+                <h3 class="animated fadeInDown">Electoral College</h3>
+                <p class="animated fadeIn" style="animation-delay: 0.8s;">
+                   The Electoral College is the body of government that elects the President and Vice President. The citizens of the US do not 
+                   vote directly for a President or Vice President, but rather choose “electors”, who pledge to vote for particular candidates.
+                   <br>
+                   <br>
+                   The number of electors per state is equal to the number of members of Congress in that state.
+                   <br>
+                   <br>
+                   The candidate who receives a majority of electoral votes (currently at 270), will be elected into the Presidential Office.
+
+                </p>
+            </div>
+            <div id="10" class="page">
+                <h3 class="animated fadeInDown">Inauguration</h3>
+                <p class="animated fadeIn" style="animation-delay: 0.8s;">
+                    The Presidential Inauguration is a ceremonial event which marks the start of a new four-year term of Presidency. During the 
+                    inauguration, the new elected President must take the oath of Presidency. It is often regarded as a celebration event of the new 
+                    President of the United States.
                 </p>
             </div>
             <div id="error" class="page">
